@@ -13,10 +13,13 @@
 .post {
 	margin-top: 1em;
 }
-.post-title {
+.post-center {
 	text-align: center;
 }
 
-.post-text {
-	text-align: center;
+.post-info {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: lightgray;
 }
