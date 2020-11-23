@@ -7,7 +7,9 @@ const App = () => {
 
 	useEffect(() => {
 		async function fetchPosts() {
-			const response = await fetch(`http://localhost:3000/api/posts`);
+			const response = await fetch(
+				`http://localhost:3000/api/posts/published`,
+			);
 			const data = await response.json();
 			setPosts(data);
 		}
@@ -15,6 +17,7 @@ const App = () => {
 	}, []);
 
 	function displayPosts() {
+		console.log(`DISPLAYING WOOOO`);
 		let postArray = [];
 		for (let i in posts) {
 			postArray.push(<Post key={i} post={posts[i]} />);
