@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Post from './Post';
 
 const PostPage = (props) => {
 	const { id } = useParams();
@@ -23,9 +24,8 @@ const PostPage = (props) => {
 			{isBusy ? (
 				<p>Hold On Just A Second</p>
 			) : (
-				<div>
-					<div>{post.title}</div>
-					<div>{post.text}</div>
+				<div className='post-container'>
+					<Post post={post} />
 				</div>
 			)}
 		</div>
