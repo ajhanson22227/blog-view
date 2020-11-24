@@ -6,18 +6,18 @@
 
 	height: 100vh;
 }
-.post-container {
+.feed-container {
 	display: flex;
 	flex-direction: column;
 }
-.post {
+.feedpost {
 	margin-top: 1em;
 }
-.post-center {
+.feedpost-center {
 	text-align: center;
 }
 
-.post-info {
+.feedpost-info {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
