@@ -10,7 +10,7 @@ const FeedPost = (props) => {
 			<div className='feedpost-info'>
 				<div className='feedpost-center'>
 					<Link to={`/post/${props.post._id}`}>
-						{props.post.comments.length} comments
+						{props.post.comments} comments
 					</Link>
 				</div>
 				<div className='feedpost-center'>{props.post.date}</div>
