@@ -1,0 +1,23 @@
+.navbar ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	list-style: none;
+}
+
+.navbar ul li {
+	margin-right: 1em;
+}
+
+.navbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	position: fixed;
+}
+.blog-title {
+	width: fit-content;
+	justify-self: left;
+	align-self: flex-start;
+}
