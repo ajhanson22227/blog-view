@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-//import Comment from './Comment';
+import Comment from './Comment';
 import './Post.css';
 
 const Post = (props) => {
@@ -14,13 +14,14 @@ const Post = (props) => {
 				<div className='post-text'>{date}</div>
 				<div className='post-text'>{comments} comments</div>
 			</div>
-			<div>{commentList}</div>
+			<div className='comment-container'>{commentList}</div>
 		</div>
 	);
 };
 
 function useCommentList(postID) {
 	const [comments, setComments] = useState(null);
+	let commentList = [];
 
 	useEffect(() => {
 		async function fetchComments() {
@@ -32,7 +33,12 @@ function useCommentList(postID) {
 		}
 		fetchComments();
 	}, [postID]);
-	console.log(comments);
+	for (let i in comments) {
+		commentList.push(
+			<Comment key={i} comment={comments[i]} num={i} />,
+		);
+	}
+	return commentList;
 }
 
 export default Post;

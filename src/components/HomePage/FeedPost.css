@@ -13,6 +13,13 @@
 .feedpost {
 	margin-top: 1em;
 }
+
+.container a {
+	text-decoration: none;
+}
+.container a:visited {
+	color: black;
+}
 .feedpost-center {
 	text-align: center;
 }
@@ -21,5 +28,4 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	color: lightgray;
 }
