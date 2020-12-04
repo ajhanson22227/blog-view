@@ -8,13 +8,15 @@
 .navbar ul li {
 	margin-right: 1em;
 }
+.navbar a:visited {
+	color: blue;
+}
 
 .navbar {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	width: 100%;
-	position: fixed;
 }
 .blog-title {
 	width: fit-content;
