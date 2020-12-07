@@ -2,7 +2,11 @@ import React from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({ user }) => {
+const Navbar = ({ username, setUser }) => {
+	const logout = () => {
+		setUser(null);
+	};
+
 	const signedOutNav = (
 		<ul>
 			<li>
@@ -19,9 +23,11 @@ const Navbar = ({ user }) => {
 			</li>
 		</ul>
 	);
-
 	const loggedInNav = (
 		<ul>
+			{username ? (
+				<li className='navbar-welcome'>{`Welcome ${username}`}</li>
+			) : null}
 			<li>
 				<Link to='/'>Home</Link>
 			</li>
@@ -29,7 +35,9 @@ const Navbar = ({ user }) => {
 				<Link to='/posts'>All Posts</Link>
 			</li>
 			<li>
-				<Link to='/user/logout'>Log Out</Link>
+				<Link to='/' onClick={logout}>
+					Log Out
+				</Link>
 			</li>
 		</ul>
 	);
@@ -39,7 +47,7 @@ const Navbar = ({ user }) => {
 			<div className='blog-title'>
 				<p>I Blog. You Read.</p>
 			</div>
-			{user == null ? signedOutNav : loggedInNav}
+			{username === null ? signedOutNav : loggedInNav}
 		</div>
 	);
 };

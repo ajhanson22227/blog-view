@@ -1,9 +1,8 @@
 import React from 'react';
 import './Register.css';
 
-const Register = () => {
+const Register = (props) => {
 	const createUser = async (data) => {
-		console.log(JSON.stringify(data));
 		await fetch('http://localhost:3000/api/user/register', {
 			method: 'POST',
 			body: JSON.stringify(data),
@@ -11,8 +10,18 @@ const Register = () => {
 				'Content-Type': 'application/json',
 			},
 		})
-			.then((response) => response.json())
-			.then((response) => console.log(response));
+			.then((response) => {
+				if (!response.ok) throw Error(response.statusText);
+				else return response.json();
+			})
+			.then((response) => {
+				localStorage.setItem('auth-token', response.token);
+				localStorage.setItem('user', JSON.stringify(response.user));
+				props.setUser(response);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	};
 
 	const handlesubmit = (event) => {
