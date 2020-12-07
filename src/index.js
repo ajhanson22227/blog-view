@@ -1,3 +1,11 @@
+/*
+	TODO:
+		Add Comment input to Post page
+		Add Delete Post option for Admins
+		Move fetch calls to a unique file
+		Style
+*/
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';

@@ -20,7 +20,11 @@ const App = () => {
 		<div>
 			<Navbar user={user} setUser={setUser} />
 			<Switch>
-				<Route path='/' exact component={() => <Homepage />} />
+				<Route
+					path='/'
+					exact
+					component={() => <Homepage user={user} />}
+				/>
 				<Route
 					path='/post/:id'
 					exact

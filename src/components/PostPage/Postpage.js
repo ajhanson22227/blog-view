@@ -25,7 +25,7 @@ const PostPage = (props) => {
 				<p>Hold On Just A Second</p>
 			) : (
 				<div className='post-container'>
-					<Post post={post} />
+					<Post post={post} user={props.user} />
 				</div>
 			)}
 		</div>
