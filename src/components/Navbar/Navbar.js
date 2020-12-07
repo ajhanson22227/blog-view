@@ -1,10 +1,12 @@
 import React from 'react';
 import './Navbar.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Navbar = ({ username, setUser }) => {
+	let history = useHistory();
 	const logout = () => {
 		setUser(null);
+		history.push('/');
 	};
 
 	const signedOutNav = (

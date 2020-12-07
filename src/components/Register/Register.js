@@ -1,7 +1,9 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import './Register.css';
 
 const Register = (props) => {
+	let history = useHistory();
 	const createUser = async (data) => {
 		await fetch('http://localhost:3000/api/user/register', {
 			method: 'POST',
@@ -15,9 +17,9 @@ const Register = (props) => {
 				else return response.json();
 			})
 			.then((response) => {
-				localStorage.setItem('auth-token', response.token);
 				localStorage.setItem('user', JSON.stringify(response.user));
 				props.setUser(response);
+				history.push('/');
 			})
 			.catch((error) => {
 				console.log(error);

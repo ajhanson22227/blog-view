@@ -15,14 +15,21 @@ const Homepage = () => {
 function usePosts() {
 	const [posts, setPosts] = useState(null);
 	useEffect(() => {
+		let isMounted = true;
 		async function fetchPosts() {
 			const response = await fetch(
 				`http://localhost:3000/api/posts/published`,
 			);
 			const data = await response.json();
-			setPosts(data);
+			if (isMounted) {
+				setPosts(data);
+			}
 		}
+
 		fetchPosts();
+		return () => {
+			isMounted = false;
+		};
 	}, []);
 	return posts;
 }
@@ -31,11 +38,19 @@ function usePostList(posts) {
 	const [postList, setPostList] = useState(null);
 
 	useEffect(() => {
+		let isMounted = true;
 		let pArray = [];
+
 		for (let i in posts) {
 			pArray.push(<FeedPost key={i} post={posts[i]} />);
 		}
-		setPostList(pArray);
+		if (isMounted) {
+			setPostList(pArray);
+		}
+
+		return () => {
+			isMounted = false;
+		};
 	}, [posts]);
 	return postList;
 }
