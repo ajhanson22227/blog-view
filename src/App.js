@@ -32,7 +32,11 @@ const App = () => {
 					exact
 					component={() => <Register setUser={setUser} />}
 				/>
-				<Route path='/user/login' exact component={() => <Login />} />
+				<Route
+					path='/user/login'
+					exact
+					component={() => <Login setUser={setUser} />}
+				/>
 			</Switch>
 		</div>
 	);

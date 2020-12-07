@@ -9,7 +9,6 @@ const Navbar = ({ user, setUser }) => {
 		history.push('/');
 	};
 
-	console.log(user);
 	const signedOutNav = (
 		<ul>
 			<li>
