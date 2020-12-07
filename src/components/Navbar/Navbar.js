@@ -2,13 +2,14 @@ import React from 'react';
 import './Navbar.css';
 import { Link, useHistory } from 'react-router-dom';
 
-const Navbar = ({ username, setUser }) => {
+const Navbar = ({ user, setUser }) => {
 	let history = useHistory();
 	const logout = () => {
 		setUser(null);
 		history.push('/');
 	};
 
+	console.log(user);
 	const signedOutNav = (
 		<ul>
 			<li>
@@ -27,8 +28,8 @@ const Navbar = ({ username, setUser }) => {
 	);
 	const loggedInNav = (
 		<ul>
-			{username ? (
-				<li className='navbar-welcome'>{`Welcome ${username}`}</li>
+			{user !== null ? (
+				<li className='navbar-welcome'>{`Welcome ${user.username}`}</li>
 			) : null}
 			<li>
 				<Link to='/'>Home</Link>
@@ -49,7 +50,7 @@ const Navbar = ({ username, setUser }) => {
 			<div className='blog-title'>
 				<p>I Blog. You Read.</p>
 			</div>
-			{username === null ? signedOutNav : loggedInNav}
+			{user === null ? signedOutNav : loggedInNav}
 		</div>
 	);
 };

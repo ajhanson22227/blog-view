@@ -18,7 +18,7 @@ const Register = (props) => {
 			})
 			.then((response) => {
 				localStorage.setItem('user', JSON.stringify(response.user));
-				props.setUser(response);
+				props.setUser(response.user);
 				history.push('/');
 			})
 			.catch((error) => {

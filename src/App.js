@@ -9,24 +9,16 @@ import Login from './components/Login/Login';
 
 const App = () => {
 	const [user, setUser] = useState(null);
-	const [username, setUsername] = useState(null);
-	const [token, setToken] = useState(null);
 
 	useEffect(() => {
-		if (user) {
-			const currUser = JSON.parse(localStorage.getItem('user'));
-			console.log(currUser);
-			setUsername(currUser.username);
-			setToken(currUser.token);
-		} else {
+		if (!user) {
 			localStorage.removeItem('user');
-			setUsername(null);
 		}
 	}, [user]);
 
 	return (
 		<div>
-			<Navbar username={username} setUser={setUser} />
+			<Navbar user={user} setUser={setUser} />
 			<Switch>
 				<Route path='/' exact component={() => <Homepage />} />
 				<Route
@@ -38,9 +30,7 @@ const App = () => {
 				<Route
 					path='/user/register'
 					exact
-					component={() => (
-						<Register setUser={setUser} token={token} />
-					)}
+					component={() => <Register setUser={setUser} />}
 				/>
 				<Route path='/user/login' exact component={() => <Login />} />
 			</Switch>
