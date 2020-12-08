@@ -16,6 +16,7 @@
 
 .container a {
 	text-decoration: none;
+	color: black;
 }
 .container a:visited {
 	color: black;
@@ -27,5 +28,5 @@
 .feedpost-info {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: center;
 }

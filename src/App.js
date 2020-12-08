@@ -6,6 +6,7 @@ import PostsPage from './components/PostsPage/PostsPage';
 import Navbar from './components/Navbar/Navbar';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
+import NewPost from './components/NewPost/NewPost';
 
 const App = () => {
 	const [user, setUser] = useState(null);
@@ -40,6 +41,11 @@ const App = () => {
 					path='/user/login'
 					exact
 					component={() => <Login setUser={setUser} />}
+				/>
+				<Route
+					path='/admin/post/create'
+					exact
+					component={() => <NewPost user={user} />}
 				/>
 			</Switch>
 		</div>

@@ -36,6 +36,13 @@ const Navbar = ({ user, setUser }) => {
 			<li>
 				<Link to='/posts'>All Posts</Link>
 			</li>
+			{user !== null ? (
+				user.status === 'admin' ? (
+					<li>
+						<Link to='/admin/post/create'>New Post</Link>
+					</li>
+				) : null
+			) : null}
 			<li>
 				<Link to='/' onClick={logout}>
 					Log Out

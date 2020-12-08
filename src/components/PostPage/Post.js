@@ -4,7 +4,7 @@ import Comment from './Comment';
 import './Post.css';
 
 const Post = (props) => {
-	const { _id, title, text, date, comments } = props.post;
+	const { _id, title, text, date } = props.post;
 	const commentList = useCommentList(_id);
 	const history = useHistory();
 
@@ -19,7 +19,7 @@ const Post = (props) => {
 				'Content-Type': 'application/json',
 				'auth-token': props.user.token,
 			},
-		}).then(history.push('/'));
+		}).then(setTimeout(() => history.push('/'), 1000));
 	};
 
 	const handleSubmit = async (event) => {
@@ -53,7 +53,6 @@ const Post = (props) => {
 				<div className='post-title'>{title}</div>
 				<div className='post-text'>{text}</div>
 				<div className='post-text'>{date}</div>
-				<div className='post-text'>{comments} comments</div>
 				{admingLoggedIn ? (
 					<div onClick={deletePost}>Delete Post</div>
 				) : null}

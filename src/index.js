@@ -1,7 +1,6 @@
 /*
 	TODO:
-		Add Comment input to Post page
-		Add Delete Post option for Admins
+		Add Create post for admin
 		Move fetch calls to a unique file
 		Style
 */

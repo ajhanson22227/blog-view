@@ -9,9 +9,6 @@ const FeedPost = (props) => {
 				<div className='feedpost-center'>{props.post.title}</div>
 				<div className='feedpost-center'>{props.post.text}</div>
 				<div className='feedpost-info'>
-					<div className='feedpost-center'>
-						{props.post.comments} comments
-					</div>
 					<div className='feedpost-center'>{props.post.date}</div>
 				</div>
 			</span>
